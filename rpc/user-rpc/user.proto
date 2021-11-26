@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package user;
+
+message reqId {
+  int64 id = 1;
+}
+
+message reqCreate {
+  string username = 1;
+  string password = 2;
+  string avatar = 3;
+  string phone = 4;
+  string name = 5;
+  string address = 6;
+  string birthday = 7;
+}
+
+message respUser {
+  int64 id = 1;
+  string username = 2;
+  string avatar = 3;
+  string phone = 4;
+  string name = 5;
+  string address = 6;
+  string birthday = 7;
+  string createdAt = 8;
+  string updatedAt = 9;
+}
+
+message reqLogin {
+  string username = 1;
+  string password = 2;
+}
+
+message reqUpdate {
+  int64 id = 1;
+  string username = 2;
+  string avatar = 3;
+  string phone = 4;
+  string name = 5;
+  string address = 6;
+  string birthday = 7;
+}
+
+message respComm {
+  bool ok = 1;
+  string error = 2;
+}
+
+message reqFindAll {}
+
+message respFindAll {
+  repeated respUser users = 1;
+}
+
+
+service Users {
+    rpc login (reqLogin) returns (respUser);
+    rpc create(reqCreate) returns(respUser);
+    rpc findOne(reqId) returns(respUser);
+    rpc findAll(reqFindAll) returns(respFindAll);
+    rpc update(reqUpdate) returns(respUser);
+    rpc delete(reqId) returns(respUser);
+}

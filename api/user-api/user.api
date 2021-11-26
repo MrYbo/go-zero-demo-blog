@@ -1,0 +1,84 @@
+syntax = "v1"
+
+info(
+	title: "user"
+	desc: "这是一个使用微服务开发的 demo"
+	author: "bo.yang"
+	email: "bo.yang@upai.com"
+)
+
+type reqId {
+	Id int64 `json:"id"`
+}
+
+type reqCreate {
+	Username string `json:"username"`
+	Password string `json:"password"`
+	Avatar   string `json:"avatar"`
+	Phone    string `json:"phone"`
+	Name     string `json:"name"`
+	Address  string `json:"address"`
+	Birthday string `json:"birthday"`
+}
+
+type respUser {
+	Id        int64  `json:"id"`
+	Username  string `json:"username"`
+	Avatar    string `json:"avatar"`
+	Phone     string `json:"phone"`
+	Name      string `json:"name"`
+	Address   string `json:"address"`
+	Birthday  string `json:"birthday"`
+	CreatedAt string `json:"createdAt"`
+	UpdatedAt string `json:"updatedAt"`
+}
+
+type reqLogin {
+	Username string `json:"username"`
+	Password string `json:"password"`
+}
+
+type reqUpdate {
+	Id       int64  `path:"id"`
+	Password string `json:"password"`
+	Avatar   string `json:"avatar"`
+	Phone    string `json:"phone"`
+	Name     string `json:"name"`
+	Address  string `json:"address"`
+	Birthday string `json:"birthday"`
+}
+
+type respLogin {
+	Token string `json:"token"`
+}
+
+type respComm {
+	Ok    bool   `json:"ok"`
+	Error string `json:"error"`
+}
+
+service users-api {
+	@handler Login
+	post /api/login (reqLogin) returns (respLogin)
+}
+
+@server(
+	jwt: Auth
+	prefix: api
+)
+service users-api {
+	@handler Create
+	post /user (reqCreate) returns (respUser)
+	
+	@handler FindOne
+	get /user/:id (reqId) returns (respUser)
+	
+	@handler FindAll
+	get /users () returns ([]respUser)
+	
+	@handler Update
+	patch /user/:id (reqUpdate) returns (respUser)
+	
+	@handler Delete
+	delete /user/:id (reqId) returns (respUser)
+}
