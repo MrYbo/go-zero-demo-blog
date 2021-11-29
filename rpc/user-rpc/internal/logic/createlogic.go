@@ -28,13 +28,12 @@ func NewCreateLogic(ctx context.Context, svcCtx *svc.ServiceContext) *CreateLogi
 
 func (l *CreateLogic) Create(in *user.ReqCreate) (*user.RespUser, error) {
 
-
 	first := l.svcCtx.UserModel.Where("username=?", in.Username).First(&model.Users{})
 	if first.RowsAffected != 0 {
 		return nil, status.Error(http.StatusConflict, "用户名已存在")
 	}
 
-	l.svcCtx.UserModel.Create(&model.Users{
+	_user := &model.Users{
 		Username: in.Username,
 		Password: in.Password,
 		Avatar:   in.Avatar,
@@ -42,14 +41,15 @@ func (l *CreateLogic) Create(in *user.ReqCreate) (*user.RespUser, error) {
 		Phone:    in.Phone,
 		Address:  in.Address,
 		Birthday: in.Birthday,
-	})
-
+	}
+	l.svcCtx.UserModel.Create(&_user)
 	return &user.RespUser{
+		Id:       int64(_user.ID),
 		Username: in.Username,
-		Avatar: in.Avatar,
-		Name: in.Name,
-		Phone: in.Phone,
-		Address: in.Address,
+		Avatar:   in.Avatar,
+		Name:     in.Name,
+		Phone:    in.Phone,
+		Address:  in.Address,
 		Birthday: in.Birthday,
 	}, nil
 }

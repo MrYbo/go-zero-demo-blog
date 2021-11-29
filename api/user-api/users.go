@@ -3,13 +3,12 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/blog/v1/common/errorx"
-	"github.com/tal-tech/go-zero/rest/httpx"
-	"net/http"
-
 	"github.com/blog/v1/api/user-api/internal/config"
 	"github.com/blog/v1/api/user-api/internal/handler"
 	"github.com/blog/v1/api/user-api/internal/svc"
+	"github.com/blog/v1/common/errorx"
+	"github.com/tal-tech/go-zero/rest/httpx"
+	"net/http"
 
 	"github.com/tal-tech/go-zero/core/conf"
 	"github.com/tal-tech/go-zero/rest"

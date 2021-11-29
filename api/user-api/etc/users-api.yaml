@@ -9,4 +9,4 @@ User:
 
 Auth:
   AccessSecret: abbnncssdd
-  AccessExpire: 60
+  AccessExpire: 60000000000

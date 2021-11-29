@@ -30,10 +30,10 @@ func (l *CreateLogic) Create(req types.ReqCreate) (*types.RespUser, error) {
 	resp, err := l.svcCtx.Users.Create(l.ctx, &user.ReqCreate{
 		Username: req.Username,
 		Password: req.Password,
-		Avatar: req.Avatar,
-		Name: req.Name,
-		Phone: req.Phone,
-		Address: req.Address,
+		Avatar:   req.Avatar,
+		Name:     req.Name,
+		Phone:    req.Phone,
+		Address:  req.Address,
 		Birthday: req.Birthday,
 	})
 
@@ -41,11 +41,12 @@ func (l *CreateLogic) Create(req types.ReqCreate) (*types.RespUser, error) {
 		return nil, errorx.NewCodeError(http.StatusConflict, "用户名已存在")
 	}
 	return &types.RespUser{
+		Id:       resp.Id,
 		Username: resp.Username,
-		Avatar: resp.Avatar,
-		Name: resp.Name,
-		Phone: resp.Phone,
-		Address: resp.Address,
+		Avatar:   resp.Avatar,
+		Name:     resp.Name,
+		Phone:    resp.Phone,
+		Address:  resp.Address,
 		Birthday: resp.Birthday,
 	}, nil
 }

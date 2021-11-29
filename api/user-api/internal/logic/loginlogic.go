@@ -6,6 +6,7 @@ import (
 	user "github.com/blog/v1/rpc/user-rpc/user"
 	"github.com/golang-jwt/jwt"
 	"net/http"
+	"time"
 
 	"github.com/blog/v1/api/user-api/internal/svc"
 	"github.com/blog/v1/api/user-api/internal/types"
@@ -27,14 +28,20 @@ func NewLoginLogic(ctx context.Context, svcCtx *svc.ServiceContext) LoginLogic {
 	}
 }
 
-func (l *LoginLogic) getJwtToken(iat, userId int64) (string, error) {
-	claims := make(jwt.MapClaims)
-	claims["exp"] = l.svcCtx.Config.Auth.AccessExpire
-	claims["iat"] = iat
-	claims["userId"] = userId
-	token := jwt.New(jwt.SigningMethodHS256)
-	token.Claims = claims
-	return token.SignedString([]byte(l.svcCtx.Config.Auth.AccessSecret))
+func (l *LoginLogic) IssuesToken(userId int64) (string, error) {
+	type Claims struct {
+		UserId int64
+		jwt.StandardClaims
+	}
+
+	claims := Claims{
+		UserId: userId,
+		StandardClaims: jwt.StandardClaims{
+			NotBefore: time.Now().Unix(),
+			ExpiresAt: l.svcCtx.Config.Auth.AccessExpire,
+		},
+	}
+	return jwt.NewWithClaims(jwt.SigningMethodHS256, claims).SignedString([]byte(l.svcCtx.Config.Auth.AccessSecret))
 }
 
 func (l *LoginLogic) Login(req types.ReqLogin) (*types.RespLogin, error) {
@@ -45,6 +52,6 @@ func (l *LoginLogic) Login(req types.ReqLogin) (*types.RespLogin, error) {
 	if err != nil {
 		return nil, errorx.NewCodeError(http.StatusUnauthorized, err.Error())
 	}
-	token, _ := l.getJwtToken(12, resp.Id)
+	token, _ := l.IssuesToken(resp.Id)
 	return &types.RespLogin{Token: token}, nil
 }
