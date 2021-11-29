@@ -7,11 +7,11 @@ info(
 	email: "bo.yang@upai.com"
 )
 
-type reqId {
-	Id int64 `json:"id"`
+type UserId {
+	Id int64 `path:"id"`
 }
 
-type reqCreate {
+type UserParams {
 	Username string `json:"username"`
 	Password string `json:"password"`
 	Avatar   string `json:"avatar"`
@@ -21,8 +21,8 @@ type reqCreate {
 	Birthday string `json:"birthday"`
 }
 
-type respUser {
-	Id        int64  `json:"id"`
+type BaseUser {
+	UserId
 	Username  string `json:"username"`
 	Avatar    string `json:"avatar"`
 	Phone     string `json:"phone"`
@@ -30,36 +30,25 @@ type respUser {
 	Address   string `json:"address"`
 	Birthday  string `json:"birthday"`
 	CreatedAt string `json:"createdAt"`
-	UpdatedAt string `json:"updatedAt"`
 }
 
-type reqLogin {
+type ReqLogin {
 	Username string `json:"username"`
 	Password string `json:"password"`
 }
 
-type reqUpdate {
-	Id       int64  `path:"id"`
-	Password string `json:"password"`
-	Avatar   string `json:"avatar"`
-	Phone    string `json:"phone"`
-	Name     string `json:"name"`
-	Address  string `json:"address"`
-	Birthday string `json:"birthday"`
-}
-
-type respLogin {
+type RespLogin {
 	Token string `json:"token"`
 }
 
-type respComm {
-	Ok    bool   `json:"ok"`
-	Error string `json:"error"`
+type CommonOK {
+	Code int    `json:"code"`
+	Msg  string `json:"msg"`
 }
 
 service users-api {
 	@handler Login
-	post /api/login (reqLogin) returns (respLogin)
+	post /api/login (ReqLogin) returns (RespLogin)
 }
 
 @server(
@@ -67,18 +56,9 @@ service users-api {
 	prefix: api
 )
 service users-api {
-	@handler Create
-	post /user (reqCreate) returns (respUser)
+	@handler create
+	post /user (UserParams) returns (BaseUser)
 	
-	@handler FindOne
-	get /user/:id (reqId) returns (respUser)
-	
-	@handler FindAll
-	get /users () returns ([]respUser)
-	
-	@handler Update
-	patch /user/:id (reqUpdate) returns (respUser)
-	
-	@handler Delete
-	delete /user/:id (reqId) returns (respUser)
+	@handler destroy
+	delete /user/:id (UserId) returns (CommonOK)
 }

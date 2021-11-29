@@ -13,22 +13,17 @@ import (
 )
 
 type (
-	ReqCreate   = user.ReqCreate
-	ReqFindAll  = user.ReqFindAll
-	ReqId       = user.ReqId
-	ReqLogin    = user.ReqLogin
-	ReqUpdate   = user.ReqUpdate
-	RespComm    = user.RespComm
-	RespFindAll = user.RespFindAll
-	RespUser    = user.RespUser
+	BaseUser   = user.BaseUser
+	CommonOK   = user.CommonOK
+	ReqLogin   = user.ReqLogin
+	RespLogin  = user.RespLogin
+	UserId     = user.UserId
+	UserParams = user.UserParams
 
 	Users interface {
-		Login(ctx context.Context, in *ReqLogin, opts ...grpc.CallOption) (*RespUser, error)
-		Create(ctx context.Context, in *ReqCreate, opts ...grpc.CallOption) (*RespUser, error)
-		FindOne(ctx context.Context, in *ReqId, opts ...grpc.CallOption) (*RespUser, error)
-		FindAll(ctx context.Context, in *ReqFindAll, opts ...grpc.CallOption) (*RespFindAll, error)
-		Update(ctx context.Context, in *ReqUpdate, opts ...grpc.CallOption) (*RespUser, error)
-		Delete(ctx context.Context, in *ReqId, opts ...grpc.CallOption) (*RespUser, error)
+		Login(ctx context.Context, in *ReqLogin, opts ...grpc.CallOption) (*BaseUser, error)
+		Create(ctx context.Context, in *UserParams, opts ...grpc.CallOption) (*BaseUser, error)
+		Destroy(ctx context.Context, in *UserId, opts ...grpc.CallOption) (*CommonOK, error)
 	}
 
 	defaultUsers struct {
@@ -42,32 +37,17 @@ func NewUsers(cli zrpc.Client) Users {
 	}
 }
 
-func (m *defaultUsers) Login(ctx context.Context, in *ReqLogin, opts ...grpc.CallOption) (*RespUser, error) {
+func (m *defaultUsers) Login(ctx context.Context, in *ReqLogin, opts ...grpc.CallOption) (*BaseUser, error) {
 	client := user.NewUsersClient(m.cli.Conn())
 	return client.Login(ctx, in, opts...)
 }
 
-func (m *defaultUsers) Create(ctx context.Context, in *ReqCreate, opts ...grpc.CallOption) (*RespUser, error) {
+func (m *defaultUsers) Create(ctx context.Context, in *UserParams, opts ...grpc.CallOption) (*BaseUser, error) {
 	client := user.NewUsersClient(m.cli.Conn())
 	return client.Create(ctx, in, opts...)
 }
 
-func (m *defaultUsers) FindOne(ctx context.Context, in *ReqId, opts ...grpc.CallOption) (*RespUser, error) {
+func (m *defaultUsers) Destroy(ctx context.Context, in *UserId, opts ...grpc.CallOption) (*CommonOK, error) {
 	client := user.NewUsersClient(m.cli.Conn())
-	return client.FindOne(ctx, in, opts...)
-}
-
-func (m *defaultUsers) FindAll(ctx context.Context, in *ReqFindAll, opts ...grpc.CallOption) (*RespFindAll, error) {
-	client := user.NewUsersClient(m.cli.Conn())
-	return client.FindAll(ctx, in, opts...)
-}
-
-func (m *defaultUsers) Update(ctx context.Context, in *ReqUpdate, opts ...grpc.CallOption) (*RespUser, error) {
-	client := user.NewUsersClient(m.cli.Conn())
-	return client.Update(ctx, in, opts...)
-}
-
-func (m *defaultUsers) Delete(ctx context.Context, in *ReqId, opts ...grpc.CallOption) (*RespUser, error) {
-	client := user.NewUsersClient(m.cli.Conn())
-	return client.Delete(ctx, in, opts...)
+	return client.Destroy(ctx, in, opts...)
 }

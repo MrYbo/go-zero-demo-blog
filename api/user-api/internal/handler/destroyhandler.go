@@ -9,16 +9,16 @@ import (
 	"github.com/tal-tech/go-zero/rest/httpx"
 )
 
-func UpdateHandler(ctx *svc.ServiceContext) http.HandlerFunc {
+func destroyHandler(ctx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req types.ReqUpdate
+		var req types.UserId
 		if err := httpx.Parse(r, &req); err != nil {
 			httpx.Error(w, err)
 			return
 		}
 
-		l := logic.NewUpdateLogic(r.Context(), ctx)
-		resp, err := l.Update(req)
+		l := logic.NewDestroyLogic(r.Context(), ctx)
+		resp, err := l.Destroy(req)
 		if err != nil {
 			httpx.Error(w, err)
 		} else {

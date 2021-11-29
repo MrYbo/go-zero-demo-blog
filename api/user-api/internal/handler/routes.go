@@ -25,27 +25,12 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 			{
 				Method:  http.MethodPost,
 				Path:    "/user",
-				Handler: CreateHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodGet,
-				Path:    "/user/:id",
-				Handler: FindOneHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodGet,
-				Path:    "/users",
-				Handler: FindAllHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodPatch,
-				Path:    "/user/:id",
-				Handler: UpdateHandler(serverCtx),
+				Handler: createHandler(serverCtx),
 			},
 			{
 				Method:  http.MethodDelete,
 				Path:    "/user/:id",
-				Handler: DeleteHandler(serverCtx),
+				Handler: destroyHandler(serverCtx),
 			},
 		},
 		rest.WithJwt(serverCtx.Config.Auth.AccessSecret),

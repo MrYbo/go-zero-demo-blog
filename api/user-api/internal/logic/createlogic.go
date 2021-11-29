@@ -26,8 +26,8 @@ func NewCreateLogic(ctx context.Context, svcCtx *svc.ServiceContext) CreateLogic
 	}
 }
 
-func (l *CreateLogic) Create(req types.ReqCreate) (*types.RespUser, error) {
-	resp, err := l.svcCtx.Users.Create(l.ctx, &user.ReqCreate{
+func (l *CreateLogic) Create(req types.UserParams) (*types.BaseUser, error) {
+	respUser, err := l.svcCtx.Users.Create(l.ctx, &user.UserParams{
 		Username: req.Username,
 		Password: req.Password,
 		Avatar:   req.Avatar,
@@ -40,13 +40,14 @@ func (l *CreateLogic) Create(req types.ReqCreate) (*types.RespUser, error) {
 	if err != nil {
 		return nil, errorx.NewCodeError(http.StatusConflict, "用户名已存在")
 	}
-	return &types.RespUser{
-		Id:       resp.Id,
-		Username: resp.Username,
-		Avatar:   resp.Avatar,
-		Name:     resp.Name,
-		Phone:    resp.Phone,
-		Address:  resp.Address,
-		Birthday: resp.Birthday,
+	return &types.BaseUser{
+		UserId:    types.UserId{Id: respUser.Id},
+		Username:  respUser.Username,
+		Avatar:    respUser.Avatar,
+		Phone:     respUser.Phone,
+		Name:      respUser.Name,
+		Address:   respUser.Address,
+		Birthday:  respUser.Birthday,
+		CreatedAt: respUser.CreatedAt,
 	}, nil
 }

@@ -49,9 +49,11 @@ func (l *LoginLogic) Login(req types.ReqLogin) (*types.RespLogin, error) {
 		Username: req.Username,
 		Password: req.Password,
 	})
+
 	if err != nil {
 		return nil, errorx.NewCodeError(http.StatusUnauthorized, err.Error())
 	}
+
 	token, _ := l.IssuesToken(resp.Id)
 	return &types.RespLogin{Token: token}, nil
 }

@@ -15,14 +15,13 @@ type ServiceContext struct {
 
 func NewServiceContext(c config.Config) *ServiceContext {
 	db, err := gorm.Open(mysql.Open(c.Mysql.DataSource), &gorm.Config{})
-
 	if err != nil {
 		panic(fmt.Sprintf("数据库初始化失败，%s", err))
 	}
 
 	db.AutoMigrate(&model.Users{})
 	return &ServiceContext{
-		Config: c,
+		Config:    c,
 		UserModel: db,
 	}
 }

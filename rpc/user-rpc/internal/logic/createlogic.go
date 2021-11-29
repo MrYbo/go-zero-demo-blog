@@ -26,7 +26,7 @@ func NewCreateLogic(ctx context.Context, svcCtx *svc.ServiceContext) *CreateLogi
 	}
 }
 
-func (l *CreateLogic) Create(in *user.ReqCreate) (*user.RespUser, error) {
+func (l *CreateLogic) Create(in *user.UserParams) (*user.BaseUser, error) {
 
 	first := l.svcCtx.UserModel.Where("username=?", in.Username).First(&model.Users{})
 	if first.RowsAffected != 0 {
@@ -43,7 +43,7 @@ func (l *CreateLogic) Create(in *user.ReqCreate) (*user.RespUser, error) {
 		Birthday: in.Birthday,
 	}
 	l.svcCtx.UserModel.Create(&_user)
-	return &user.RespUser{
+	return &user.BaseUser{
 		Id:       int64(_user.ID),
 		Username: in.Username,
 		Avatar:   in.Avatar,

@@ -24,7 +24,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type ReqId struct {
+type UserId struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -32,8 +32,8 @@ type ReqId struct {
 	Id int64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
-func (x *ReqId) Reset() {
-	*x = ReqId{}
+func (x *UserId) Reset() {
+	*x = UserId{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_user_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -41,13 +41,13 @@ func (x *ReqId) Reset() {
 	}
 }
 
-func (x *ReqId) String() string {
+func (x *UserId) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ReqId) ProtoMessage() {}
+func (*UserId) ProtoMessage() {}
 
-func (x *ReqId) ProtoReflect() protoreflect.Message {
+func (x *UserId) ProtoReflect() protoreflect.Message {
 	mi := &file_user_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -59,19 +59,19 @@ func (x *ReqId) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ReqId.ProtoReflect.Descriptor instead.
-func (*ReqId) Descriptor() ([]byte, []int) {
+// Deprecated: Use UserId.ProtoReflect.Descriptor instead.
+func (*UserId) Descriptor() ([]byte, []int) {
 	return file_user_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *ReqId) GetId() int64 {
+func (x *UserId) GetId() int64 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-type ReqCreate struct {
+type UserParams struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -85,8 +85,8 @@ type ReqCreate struct {
 	Birthday string `protobuf:"bytes,7,opt,name=birthday,proto3" json:"birthday,omitempty"`
 }
 
-func (x *ReqCreate) Reset() {
-	*x = ReqCreate{}
+func (x *UserParams) Reset() {
+	*x = UserParams{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_user_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -94,13 +94,13 @@ func (x *ReqCreate) Reset() {
 	}
 }
 
-func (x *ReqCreate) String() string {
+func (x *UserParams) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ReqCreate) ProtoMessage() {}
+func (*UserParams) ProtoMessage() {}
 
-func (x *ReqCreate) ProtoReflect() protoreflect.Message {
+func (x *UserParams) ProtoReflect() protoreflect.Message {
 	mi := &file_user_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -112,61 +112,61 @@ func (x *ReqCreate) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ReqCreate.ProtoReflect.Descriptor instead.
-func (*ReqCreate) Descriptor() ([]byte, []int) {
+// Deprecated: Use UserParams.ProtoReflect.Descriptor instead.
+func (*UserParams) Descriptor() ([]byte, []int) {
 	return file_user_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *ReqCreate) GetUsername() string {
+func (x *UserParams) GetUsername() string {
 	if x != nil {
 		return x.Username
 	}
 	return ""
 }
 
-func (x *ReqCreate) GetPassword() string {
+func (x *UserParams) GetPassword() string {
 	if x != nil {
 		return x.Password
 	}
 	return ""
 }
 
-func (x *ReqCreate) GetAvatar() string {
+func (x *UserParams) GetAvatar() string {
 	if x != nil {
 		return x.Avatar
 	}
 	return ""
 }
 
-func (x *ReqCreate) GetPhone() string {
+func (x *UserParams) GetPhone() string {
 	if x != nil {
 		return x.Phone
 	}
 	return ""
 }
 
-func (x *ReqCreate) GetName() string {
+func (x *UserParams) GetName() string {
 	if x != nil {
 		return x.Name
 	}
 	return ""
 }
 
-func (x *ReqCreate) GetAddress() string {
+func (x *UserParams) GetAddress() string {
 	if x != nil {
 		return x.Address
 	}
 	return ""
 }
 
-func (x *ReqCreate) GetBirthday() string {
+func (x *UserParams) GetBirthday() string {
 	if x != nil {
 		return x.Birthday
 	}
 	return ""
 }
 
-type RespUser struct {
+type BaseUser struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -182,8 +182,8 @@ type RespUser struct {
 	UpdatedAt string `protobuf:"bytes,9,opt,name=updatedAt,proto3" json:"updatedAt,omitempty"`
 }
 
-func (x *RespUser) Reset() {
-	*x = RespUser{}
+func (x *BaseUser) Reset() {
+	*x = BaseUser{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_user_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -191,13 +191,13 @@ func (x *RespUser) Reset() {
 	}
 }
 
-func (x *RespUser) String() string {
+func (x *BaseUser) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*RespUser) ProtoMessage() {}
+func (*BaseUser) ProtoMessage() {}
 
-func (x *RespUser) ProtoReflect() protoreflect.Message {
+func (x *BaseUser) ProtoReflect() protoreflect.Message {
 	mi := &file_user_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -209,68 +209,68 @@ func (x *RespUser) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use RespUser.ProtoReflect.Descriptor instead.
-func (*RespUser) Descriptor() ([]byte, []int) {
+// Deprecated: Use BaseUser.ProtoReflect.Descriptor instead.
+func (*BaseUser) Descriptor() ([]byte, []int) {
 	return file_user_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *RespUser) GetId() int64 {
+func (x *BaseUser) GetId() int64 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-func (x *RespUser) GetUsername() string {
+func (x *BaseUser) GetUsername() string {
 	if x != nil {
 		return x.Username
 	}
 	return ""
 }
 
-func (x *RespUser) GetAvatar() string {
+func (x *BaseUser) GetAvatar() string {
 	if x != nil {
 		return x.Avatar
 	}
 	return ""
 }
 
-func (x *RespUser) GetPhone() string {
+func (x *BaseUser) GetPhone() string {
 	if x != nil {
 		return x.Phone
 	}
 	return ""
 }
 
-func (x *RespUser) GetName() string {
+func (x *BaseUser) GetName() string {
 	if x != nil {
 		return x.Name
 	}
 	return ""
 }
 
-func (x *RespUser) GetAddress() string {
+func (x *BaseUser) GetAddress() string {
 	if x != nil {
 		return x.Address
 	}
 	return ""
 }
 
-func (x *RespUser) GetBirthday() string {
+func (x *BaseUser) GetBirthday() string {
 	if x != nil {
 		return x.Birthday
 	}
 	return ""
 }
 
-func (x *RespUser) GetCreatedAt() string {
+func (x *BaseUser) GetCreatedAt() string {
 	if x != nil {
 		return x.CreatedAt
 	}
 	return ""
 }
 
-func (x *RespUser) GetUpdatedAt() string {
+func (x *BaseUser) GetUpdatedAt() string {
 	if x != nil {
 		return x.UpdatedAt
 	}
@@ -332,22 +332,16 @@ func (x *ReqLogin) GetPassword() string {
 	return ""
 }
 
-type ReqUpdate struct {
+type RespLogin struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id       int64  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Username string `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty"`
-	Avatar   string `protobuf:"bytes,3,opt,name=avatar,proto3" json:"avatar,omitempty"`
-	Phone    string `protobuf:"bytes,4,opt,name=phone,proto3" json:"phone,omitempty"`
-	Name     string `protobuf:"bytes,5,opt,name=name,proto3" json:"name,omitempty"`
-	Address  string `protobuf:"bytes,6,opt,name=address,proto3" json:"address,omitempty"`
-	Birthday string `protobuf:"bytes,7,opt,name=birthday,proto3" json:"birthday,omitempty"`
+	Token string `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
 }
 
-func (x *ReqUpdate) Reset() {
-	*x = ReqUpdate{}
+func (x *RespLogin) Reset() {
+	*x = RespLogin{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_user_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -355,13 +349,13 @@ func (x *ReqUpdate) Reset() {
 	}
 }
 
-func (x *ReqUpdate) String() string {
+func (x *RespLogin) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ReqUpdate) ProtoMessage() {}
+func (*RespLogin) ProtoMessage() {}
 
-func (x *ReqUpdate) ProtoReflect() protoreflect.Message {
+func (x *RespLogin) ProtoReflect() protoreflect.Message {
 	mi := &file_user_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -373,71 +367,29 @@ func (x *ReqUpdate) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ReqUpdate.ProtoReflect.Descriptor instead.
-func (*ReqUpdate) Descriptor() ([]byte, []int) {
+// Deprecated: Use RespLogin.ProtoReflect.Descriptor instead.
+func (*RespLogin) Descriptor() ([]byte, []int) {
 	return file_user_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *ReqUpdate) GetId() int64 {
+func (x *RespLogin) GetToken() string {
 	if x != nil {
-		return x.Id
-	}
-	return 0
-}
-
-func (x *ReqUpdate) GetUsername() string {
-	if x != nil {
-		return x.Username
+		return x.Token
 	}
 	return ""
 }
 
-func (x *ReqUpdate) GetAvatar() string {
-	if x != nil {
-		return x.Avatar
-	}
-	return ""
-}
-
-func (x *ReqUpdate) GetPhone() string {
-	if x != nil {
-		return x.Phone
-	}
-	return ""
-}
-
-func (x *ReqUpdate) GetName() string {
-	if x != nil {
-		return x.Name
-	}
-	return ""
-}
-
-func (x *ReqUpdate) GetAddress() string {
-	if x != nil {
-		return x.Address
-	}
-	return ""
-}
-
-func (x *ReqUpdate) GetBirthday() string {
-	if x != nil {
-		return x.Birthday
-	}
-	return ""
-}
-
-type RespComm struct {
+type CommonOK struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Ok    bool   `protobuf:"varint,1,opt,name=ok,proto3" json:"ok,omitempty"`
-	Error string `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
+	Code int64  `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
+	Msg  string `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg,omitempty"`
 }
 
-func (x *RespComm) Reset() {
-	*x = RespComm{}
+func (x *CommonOK) Reset() {
+	*x = CommonOK{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_user_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -445,13 +397,13 @@ func (x *RespComm) Reset() {
 	}
 }
 
-func (x *RespComm) String() string {
+func (x *CommonOK) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*RespComm) ProtoMessage() {}
+func (*CommonOK) ProtoMessage() {}
 
-func (x *RespComm) ProtoReflect() protoreflect.Message {
+func (x *CommonOK) ProtoReflect() protoreflect.Message {
 	mi := &file_user_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -463,148 +415,44 @@ func (x *RespComm) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use RespComm.ProtoReflect.Descriptor instead.
-func (*RespComm) Descriptor() ([]byte, []int) {
+// Deprecated: Use CommonOK.ProtoReflect.Descriptor instead.
+func (*CommonOK) Descriptor() ([]byte, []int) {
 	return file_user_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *RespComm) GetOk() bool {
+func (x *CommonOK) GetCode() int64 {
 	if x != nil {
-		return x.Ok
+		return x.Code
 	}
-	return false
+	return 0
 }
 
-func (x *RespComm) GetError() string {
+func (x *CommonOK) GetMsg() string {
 	if x != nil {
-		return x.Error
+		return x.Msg
 	}
 	return ""
-}
-
-type ReqFindAll struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-}
-
-func (x *ReqFindAll) Reset() {
-	*x = ReqFindAll{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_user_proto_msgTypes[6]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *ReqFindAll) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReqFindAll) ProtoMessage() {}
-
-func (x *ReqFindAll) ProtoReflect() protoreflect.Message {
-	mi := &file_user_proto_msgTypes[6]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReqFindAll.ProtoReflect.Descriptor instead.
-func (*ReqFindAll) Descriptor() ([]byte, []int) {
-	return file_user_proto_rawDescGZIP(), []int{6}
-}
-
-type RespFindAll struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Users []*RespUser `protobuf:"bytes,1,rep,name=users,proto3" json:"users,omitempty"`
-}
-
-func (x *RespFindAll) Reset() {
-	*x = RespFindAll{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_user_proto_msgTypes[7]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *RespFindAll) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RespFindAll) ProtoMessage() {}
-
-func (x *RespFindAll) ProtoReflect() protoreflect.Message {
-	mi := &file_user_proto_msgTypes[7]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RespFindAll.ProtoReflect.Descriptor instead.
-func (*RespFindAll) Descriptor() ([]byte, []int) {
-	return file_user_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *RespFindAll) GetUsers() []*RespUser {
-	if x != nil {
-		return x.Users
-	}
-	return nil
 }
 
 var File_user_proto protoreflect.FileDescriptor
 
 var file_user_proto_rawDesc = []byte{
 	0x0a, 0x0a, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x04, 0x75, 0x73,
-	0x65, 0x72, 0x22, 0x17, 0x0a, 0x05, 0x72, 0x65, 0x71, 0x49, 0x64, 0x12, 0x0e, 0x0a, 0x02, 0x69,
-	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x02, 0x69, 0x64, 0x22, 0xbb, 0x01, 0x0a, 0x09,
-	0x72, 0x65, 0x71, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x75, 0x73, 0x65,
-	0x72, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x75, 0x73, 0x65,
-	0x72, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x70, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72,
-	0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x70, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72,
-	0x64, 0x12, 0x16, 0x0a, 0x06, 0x61, 0x76, 0x61, 0x74, 0x61, 0x72, 0x18, 0x03, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x06, 0x61, 0x76, 0x61, 0x74, 0x61, 0x72, 0x12, 0x14, 0x0a, 0x05, 0x70, 0x68, 0x6f,
-	0x6e, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x70, 0x68, 0x6f, 0x6e, 0x65, 0x12,
-	0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e,
-	0x61, 0x6d, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x06,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x12, 0x1a, 0x0a,
-	0x08, 0x62, 0x69, 0x72, 0x74, 0x68, 0x64, 0x61, 0x79, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x08, 0x62, 0x69, 0x72, 0x74, 0x68, 0x64, 0x61, 0x79, 0x22, 0xea, 0x01, 0x0a, 0x08, 0x72, 0x65,
-	0x73, 0x70, 0x55, 0x73, 0x65, 0x72, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x03, 0x52, 0x02, 0x69, 0x64, 0x12, 0x1a, 0x0a, 0x08, 0x75, 0x73, 0x65, 0x72, 0x6e, 0x61,
-	0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x75, 0x73, 0x65, 0x72, 0x6e, 0x61,
-	0x6d, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x61, 0x76, 0x61, 0x74, 0x61, 0x72, 0x18, 0x03, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x06, 0x61, 0x76, 0x61, 0x74, 0x61, 0x72, 0x12, 0x14, 0x0a, 0x05, 0x70, 0x68,
-	0x6f, 0x6e, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x70, 0x68, 0x6f, 0x6e, 0x65,
-	0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04,
-	0x6e, 0x61, 0x6d, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18,
-	0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x12, 0x1a,
-	0x0a, 0x08, 0x62, 0x69, 0x72, 0x74, 0x68, 0x64, 0x61, 0x79, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x08, 0x62, 0x69, 0x72, 0x74, 0x68, 0x64, 0x61, 0x79, 0x12, 0x1c, 0x0a, 0x09, 0x63, 0x72,
-	0x65, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x18, 0x08, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x63,
-	0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x12, 0x1c, 0x0a, 0x09, 0x75, 0x70, 0x64, 0x61,
-	0x74, 0x65, 0x64, 0x41, 0x74, 0x18, 0x09, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x75, 0x70, 0x64,
-	0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x22, 0x42, 0x0a, 0x08, 0x72, 0x65, 0x71, 0x4c, 0x6f, 0x67,
-	0x69, 0x6e, 0x12, 0x1a, 0x0a, 0x08, 0x75, 0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x75, 0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x1a,
-	0x0a, 0x08, 0x70, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x08, 0x70, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x22, 0xaf, 0x01, 0x0a, 0x09, 0x72,
-	0x65, 0x71, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01,
+	0x65, 0x72, 0x22, 0x18, 0x0a, 0x06, 0x55, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x0e, 0x0a, 0x02,
+	0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x02, 0x69, 0x64, 0x22, 0xbc, 0x01, 0x0a,
+	0x0a, 0x55, 0x73, 0x65, 0x72, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x12, 0x1a, 0x0a, 0x08, 0x75,
+	0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x75,
+	0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x70, 0x61, 0x73, 0x73, 0x77,
+	0x6f, 0x72, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x70, 0x61, 0x73, 0x73, 0x77,
+	0x6f, 0x72, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x61, 0x76, 0x61, 0x74, 0x61, 0x72, 0x18, 0x03, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x06, 0x61, 0x76, 0x61, 0x74, 0x61, 0x72, 0x12, 0x14, 0x0a, 0x05, 0x70,
+	0x68, 0x6f, 0x6e, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x70, 0x68, 0x6f, 0x6e,
+	0x65, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73,
+	0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x12,
+	0x1a, 0x0a, 0x08, 0x62, 0x69, 0x72, 0x74, 0x68, 0x64, 0x61, 0x79, 0x18, 0x07, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x08, 0x62, 0x69, 0x72, 0x74, 0x68, 0x64, 0x61, 0x79, 0x22, 0xea, 0x01, 0x0a, 0x08,
+	0x42, 0x61, 0x73, 0x65, 0x55, 0x73, 0x65, 0x72, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01,
 	0x20, 0x01, 0x28, 0x03, 0x52, 0x02, 0x69, 0x64, 0x12, 0x1a, 0x0a, 0x08, 0x75, 0x73, 0x65, 0x72,
 	0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x75, 0x73, 0x65, 0x72,
 	0x6e, 0x61, 0x6d, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x61, 0x76, 0x61, 0x74, 0x61, 0x72, 0x18, 0x03,
@@ -614,31 +462,29 @@ var file_user_proto_rawDesc = []byte{
 	0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73,
 	0x73, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73,
 	0x12, 0x1a, 0x0a, 0x08, 0x62, 0x69, 0x72, 0x74, 0x68, 0x64, 0x61, 0x79, 0x18, 0x07, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x08, 0x62, 0x69, 0x72, 0x74, 0x68, 0x64, 0x61, 0x79, 0x22, 0x30, 0x0a, 0x08,
-	0x72, 0x65, 0x73, 0x70, 0x43, 0x6f, 0x6d, 0x6d, 0x12, 0x0e, 0x0a, 0x02, 0x6f, 0x6b, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x08, 0x52, 0x02, 0x6f, 0x6b, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x72, 0x72, 0x6f,
-	0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x22, 0x0c,
-	0x0a, 0x0a, 0x72, 0x65, 0x71, 0x46, 0x69, 0x6e, 0x64, 0x41, 0x6c, 0x6c, 0x22, 0x33, 0x0a, 0x0b,
-	0x72, 0x65, 0x73, 0x70, 0x46, 0x69, 0x6e, 0x64, 0x41, 0x6c, 0x6c, 0x12, 0x24, 0x0a, 0x05, 0x75,
-	0x73, 0x65, 0x72, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x75, 0x73, 0x65,
-	0x72, 0x2e, 0x72, 0x65, 0x73, 0x70, 0x55, 0x73, 0x65, 0x72, 0x52, 0x05, 0x75, 0x73, 0x65, 0x72,
-	0x73, 0x32, 0x85, 0x02, 0x0a, 0x05, 0x55, 0x73, 0x65, 0x72, 0x73, 0x12, 0x27, 0x0a, 0x05, 0x6c,
+	0x28, 0x09, 0x52, 0x08, 0x62, 0x69, 0x72, 0x74, 0x68, 0x64, 0x61, 0x79, 0x12, 0x1c, 0x0a, 0x09,
+	0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x18, 0x08, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x09, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x12, 0x1c, 0x0a, 0x09, 0x75, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x18, 0x09, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x75,
+	0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x22, 0x42, 0x0a, 0x08, 0x72, 0x65, 0x71, 0x4c,
+	0x6f, 0x67, 0x69, 0x6e, 0x12, 0x1a, 0x0a, 0x08, 0x75, 0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x75, 0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d, 0x65,
+	0x12, 0x1a, 0x0a, 0x08, 0x70, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x08, 0x70, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x22, 0x21, 0x0a, 0x09,
+	0x52, 0x65, 0x73, 0x70, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x12, 0x14, 0x0a, 0x05, 0x74, 0x6f, 0x6b,
+	0x65, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x22,
+	0x30, 0x0a, 0x08, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x4f, 0x4b, 0x12, 0x12, 0x0a, 0x04, 0x63,
+	0x6f, 0x64, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x12,
+	0x10, 0x0a, 0x03, 0x6d, 0x73, 0x67, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6d, 0x73,
+	0x67, 0x32, 0x85, 0x01, 0x0a, 0x05, 0x55, 0x73, 0x65, 0x72, 0x73, 0x12, 0x27, 0x0a, 0x05, 0x6c,
 	0x6f, 0x67, 0x69, 0x6e, 0x12, 0x0e, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x72, 0x65, 0x71, 0x4c,
-	0x6f, 0x67, 0x69, 0x6e, 0x1a, 0x0e, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x72, 0x65, 0x73, 0x70,
-	0x55, 0x73, 0x65, 0x72, 0x12, 0x29, 0x0a, 0x06, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12, 0x0f,
-	0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x72, 0x65, 0x71, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x1a,
-	0x0e, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x72, 0x65, 0x73, 0x70, 0x55, 0x73, 0x65, 0x72, 0x12,
-	0x26, 0x0a, 0x07, 0x66, 0x69, 0x6e, 0x64, 0x4f, 0x6e, 0x65, 0x12, 0x0b, 0x2e, 0x75, 0x73, 0x65,
-	0x72, 0x2e, 0x72, 0x65, 0x71, 0x49, 0x64, 0x1a, 0x0e, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x72,
-	0x65, 0x73, 0x70, 0x55, 0x73, 0x65, 0x72, 0x12, 0x2e, 0x0a, 0x07, 0x66, 0x69, 0x6e, 0x64, 0x41,
-	0x6c, 0x6c, 0x12, 0x10, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x72, 0x65, 0x71, 0x46, 0x69, 0x6e,
-	0x64, 0x41, 0x6c, 0x6c, 0x1a, 0x11, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x72, 0x65, 0x73, 0x70,
-	0x46, 0x69, 0x6e, 0x64, 0x41, 0x6c, 0x6c, 0x12, 0x29, 0x0a, 0x06, 0x75, 0x70, 0x64, 0x61, 0x74,
-	0x65, 0x12, 0x0f, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x72, 0x65, 0x71, 0x55, 0x70, 0x64, 0x61,
-	0x74, 0x65, 0x1a, 0x0e, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x72, 0x65, 0x73, 0x70, 0x55, 0x73,
-	0x65, 0x72, 0x12, 0x25, 0x0a, 0x06, 0x64, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x12, 0x0b, 0x2e, 0x75,
-	0x73, 0x65, 0x72, 0x2e, 0x72, 0x65, 0x71, 0x49, 0x64, 0x1a, 0x0e, 0x2e, 0x75, 0x73, 0x65, 0x72,
-	0x2e, 0x72, 0x65, 0x73, 0x70, 0x55, 0x73, 0x65, 0x72, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x6f, 0x67, 0x69, 0x6e, 0x1a, 0x0e, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x42, 0x61, 0x73, 0x65,
+	0x55, 0x73, 0x65, 0x72, 0x12, 0x2a, 0x0a, 0x06, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12, 0x10,
+	0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73,
+	0x1a, 0x0e, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x55, 0x73, 0x65, 0x72,
+	0x12, 0x27, 0x0a, 0x07, 0x64, 0x65, 0x73, 0x74, 0x72, 0x6f, 0x79, 0x12, 0x0c, 0x2e, 0x75, 0x73,
+	0x65, 0x72, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x49, 0x64, 0x1a, 0x0e, 0x2e, 0x75, 0x73, 0x65, 0x72,
+	0x2e, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x4f, 0x4b, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
 	0x33,
 }
 
@@ -654,36 +500,27 @@ func file_user_proto_rawDescGZIP() []byte {
 	return file_user_proto_rawDescData
 }
 
-var file_user_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_user_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_user_proto_goTypes = []interface{}{
-	(*ReqId)(nil),       // 0: user.reqId
-	(*ReqCreate)(nil),   // 1: user.reqCreate
-	(*RespUser)(nil),    // 2: user.respUser
-	(*ReqLogin)(nil),    // 3: user.reqLogin
-	(*ReqUpdate)(nil),   // 4: user.reqUpdate
-	(*RespComm)(nil),    // 5: user.respComm
-	(*ReqFindAll)(nil),  // 6: user.reqFindAll
-	(*RespFindAll)(nil), // 7: user.respFindAll
+	(*UserId)(nil),     // 0: user.UserId
+	(*UserParams)(nil), // 1: user.UserParams
+	(*BaseUser)(nil),   // 2: user.BaseUser
+	(*ReqLogin)(nil),   // 3: user.reqLogin
+	(*RespLogin)(nil),  // 4: user.RespLogin
+	(*CommonOK)(nil),   // 5: user.CommonOK
 }
 var file_user_proto_depIdxs = []int32{
-	2, // 0: user.respFindAll.users:type_name -> user.respUser
-	3, // 1: user.Users.login:input_type -> user.reqLogin
-	1, // 2: user.Users.create:input_type -> user.reqCreate
-	0, // 3: user.Users.findOne:input_type -> user.reqId
-	6, // 4: user.Users.findAll:input_type -> user.reqFindAll
-	4, // 5: user.Users.update:input_type -> user.reqUpdate
-	0, // 6: user.Users.delete:input_type -> user.reqId
-	2, // 7: user.Users.login:output_type -> user.respUser
-	2, // 8: user.Users.create:output_type -> user.respUser
-	2, // 9: user.Users.findOne:output_type -> user.respUser
-	7, // 10: user.Users.findAll:output_type -> user.respFindAll
-	2, // 11: user.Users.update:output_type -> user.respUser
-	2, // 12: user.Users.delete:output_type -> user.respUser
-	7, // [7:13] is the sub-list for method output_type
-	1, // [1:7] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	3, // 0: user.Users.login:input_type -> user.reqLogin
+	1, // 1: user.Users.create:input_type -> user.UserParams
+	0, // 2: user.Users.destroy:input_type -> user.UserId
+	2, // 3: user.Users.login:output_type -> user.BaseUser
+	2, // 4: user.Users.create:output_type -> user.BaseUser
+	5, // 5: user.Users.destroy:output_type -> user.CommonOK
+	3, // [3:6] is the sub-list for method output_type
+	0, // [0:3] is the sub-list for method input_type
+	0, // [0:0] is the sub-list for extension type_name
+	0, // [0:0] is the sub-list for extension extendee
+	0, // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_user_proto_init() }
@@ -693,7 +530,7 @@ func file_user_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_user_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ReqId); i {
+			switch v := v.(*UserId); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -705,7 +542,7 @@ func file_user_proto_init() {
 			}
 		}
 		file_user_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ReqCreate); i {
+			switch v := v.(*UserParams); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -717,7 +554,7 @@ func file_user_proto_init() {
 			}
 		}
 		file_user_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*RespUser); i {
+			switch v := v.(*BaseUser); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -741,7 +578,7 @@ func file_user_proto_init() {
 			}
 		}
 		file_user_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ReqUpdate); i {
+			switch v := v.(*RespLogin); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -753,31 +590,7 @@ func file_user_proto_init() {
 			}
 		}
 		file_user_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*RespComm); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_user_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ReqFindAll); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_user_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*RespFindAll); i {
+			switch v := v.(*CommonOK); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -795,7 +608,7 @@ func file_user_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_user_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -821,12 +634,9 @@ const _ = grpc.SupportPackageIsVersion6
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type UsersClient interface {
-	Login(ctx context.Context, in *ReqLogin, opts ...grpc.CallOption) (*RespUser, error)
-	Create(ctx context.Context, in *ReqCreate, opts ...grpc.CallOption) (*RespUser, error)
-	FindOne(ctx context.Context, in *ReqId, opts ...grpc.CallOption) (*RespUser, error)
-	FindAll(ctx context.Context, in *ReqFindAll, opts ...grpc.CallOption) (*RespFindAll, error)
-	Update(ctx context.Context, in *ReqUpdate, opts ...grpc.CallOption) (*RespUser, error)
-	Delete(ctx context.Context, in *ReqId, opts ...grpc.CallOption) (*RespUser, error)
+	Login(ctx context.Context, in *ReqLogin, opts ...grpc.CallOption) (*BaseUser, error)
+	Create(ctx context.Context, in *UserParams, opts ...grpc.CallOption) (*BaseUser, error)
+	Destroy(ctx context.Context, in *UserId, opts ...grpc.CallOption) (*CommonOK, error)
 }
 
 type usersClient struct {
@@ -837,8 +647,8 @@ func NewUsersClient(cc grpc.ClientConnInterface) UsersClient {
 	return &usersClient{cc}
 }
 
-func (c *usersClient) Login(ctx context.Context, in *ReqLogin, opts ...grpc.CallOption) (*RespUser, error) {
-	out := new(RespUser)
+func (c *usersClient) Login(ctx context.Context, in *ReqLogin, opts ...grpc.CallOption) (*BaseUser, error) {
+	out := new(BaseUser)
 	err := c.cc.Invoke(ctx, "/user.Users/login", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -846,8 +656,8 @@ func (c *usersClient) Login(ctx context.Context, in *ReqLogin, opts ...grpc.Call
 	return out, nil
 }
 
-func (c *usersClient) Create(ctx context.Context, in *ReqCreate, opts ...grpc.CallOption) (*RespUser, error) {
-	out := new(RespUser)
+func (c *usersClient) Create(ctx context.Context, in *UserParams, opts ...grpc.CallOption) (*BaseUser, error) {
+	out := new(BaseUser)
 	err := c.cc.Invoke(ctx, "/user.Users/create", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -855,36 +665,9 @@ func (c *usersClient) Create(ctx context.Context, in *ReqCreate, opts ...grpc.Ca
 	return out, nil
 }
 
-func (c *usersClient) FindOne(ctx context.Context, in *ReqId, opts ...grpc.CallOption) (*RespUser, error) {
-	out := new(RespUser)
-	err := c.cc.Invoke(ctx, "/user.Users/findOne", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usersClient) FindAll(ctx context.Context, in *ReqFindAll, opts ...grpc.CallOption) (*RespFindAll, error) {
-	out := new(RespFindAll)
-	err := c.cc.Invoke(ctx, "/user.Users/findAll", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usersClient) Update(ctx context.Context, in *ReqUpdate, opts ...grpc.CallOption) (*RespUser, error) {
-	out := new(RespUser)
-	err := c.cc.Invoke(ctx, "/user.Users/update", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *usersClient) Delete(ctx context.Context, in *ReqId, opts ...grpc.CallOption) (*RespUser, error) {
-	out := new(RespUser)
-	err := c.cc.Invoke(ctx, "/user.Users/delete", in, out, opts...)
+func (c *usersClient) Destroy(ctx context.Context, in *UserId, opts ...grpc.CallOption) (*CommonOK, error) {
+	out := new(CommonOK)
+	err := c.cc.Invoke(ctx, "/user.Users/destroy", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -893,35 +676,23 @@ func (c *usersClient) Delete(ctx context.Context, in *ReqId, opts ...grpc.CallOp
 
 // UsersServer is the server API for Users service.
 type UsersServer interface {
-	Login(context.Context, *ReqLogin) (*RespUser, error)
-	Create(context.Context, *ReqCreate) (*RespUser, error)
-	FindOne(context.Context, *ReqId) (*RespUser, error)
-	FindAll(context.Context, *ReqFindAll) (*RespFindAll, error)
-	Update(context.Context, *ReqUpdate) (*RespUser, error)
-	Delete(context.Context, *ReqId) (*RespUser, error)
+	Login(context.Context, *ReqLogin) (*BaseUser, error)
+	Create(context.Context, *UserParams) (*BaseUser, error)
+	Destroy(context.Context, *UserId) (*CommonOK, error)
 }
 
 // UnimplementedUsersServer can be embedded to have forward compatible implementations.
 type UnimplementedUsersServer struct {
 }
 
-func (*UnimplementedUsersServer) Login(context.Context, *ReqLogin) (*RespUser, error) {
+func (*UnimplementedUsersServer) Login(context.Context, *ReqLogin) (*BaseUser, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Login not implemented")
 }
-func (*UnimplementedUsersServer) Create(context.Context, *ReqCreate) (*RespUser, error) {
+func (*UnimplementedUsersServer) Create(context.Context, *UserParams) (*BaseUser, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (*UnimplementedUsersServer) FindOne(context.Context, *ReqId) (*RespUser, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FindOne not implemented")
-}
-func (*UnimplementedUsersServer) FindAll(context.Context, *ReqFindAll) (*RespFindAll, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FindAll not implemented")
-}
-func (*UnimplementedUsersServer) Update(context.Context, *ReqUpdate) (*RespUser, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
-}
-func (*UnimplementedUsersServer) Delete(context.Context, *ReqId) (*RespUser, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
+func (*UnimplementedUsersServer) Destroy(context.Context, *UserId) (*CommonOK, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
 }
 
 func RegisterUsersServer(s *grpc.Server, srv UsersServer) {
@@ -947,7 +718,7 @@ func _Users_Login_Handler(srv interface{}, ctx context.Context, dec func(interfa
 }
 
 func _Users_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReqCreate)
+	in := new(UserParams)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -959,79 +730,25 @@ func _Users_Create_Handler(srv interface{}, ctx context.Context, dec func(interf
 		FullMethod: "/user.Users/Create",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsersServer).Create(ctx, req.(*ReqCreate))
+		return srv.(UsersServer).Create(ctx, req.(*UserParams))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Users_FindOne_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReqId)
+func _Users_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UserId)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UsersServer).FindOne(ctx, in)
+		return srv.(UsersServer).Destroy(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/user.Users/FindOne",
+		FullMethod: "/user.Users/Destroy",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsersServer).FindOne(ctx, req.(*ReqId))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Users_FindAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReqFindAll)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsersServer).FindAll(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/user.Users/FindAll",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsersServer).FindAll(ctx, req.(*ReqFindAll))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Users_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReqUpdate)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsersServer).Update(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/user.Users/Update",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsersServer).Update(ctx, req.(*ReqUpdate))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Users_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReqId)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UsersServer).Delete(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/user.Users/Delete",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UsersServer).Delete(ctx, req.(*ReqId))
+		return srv.(UsersServer).Destroy(ctx, req.(*UserId))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1049,20 +766,8 @@ var _Users_serviceDesc = grpc.ServiceDesc{
 			Handler:    _Users_Create_Handler,
 		},
 		{
-			MethodName: "findOne",
-			Handler:    _Users_FindOne_Handler,
-		},
-		{
-			MethodName: "findAll",
-			Handler:    _Users_FindAll_Handler,
-		},
-		{
-			MethodName: "update",
-			Handler:    _Users_Update_Handler,
-		},
-		{
-			MethodName: "delete",
-			Handler:    _Users_Delete_Handler,
+			MethodName: "destroy",
+			Handler:    _Users_Destroy_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

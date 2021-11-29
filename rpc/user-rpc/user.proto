@@ -2,11 +2,11 @@ syntax = "proto3";
 
 package user;
 
-message reqId {
+message UserId {
   int64 id = 1;
 }
 
-message reqCreate {
+message UserParams {
   string username = 1;
   string password = 2;
   string avatar = 3;
@@ -16,7 +16,7 @@ message reqCreate {
   string birthday = 7;
 }
 
-message respUser {
+message BaseUser {
   int64 id = 1;
   string username = 2;
   string avatar = 3;
@@ -33,33 +33,17 @@ message reqLogin {
   string password = 2;
 }
 
-message reqUpdate {
-  int64 id = 1;
-  string username = 2;
-  string avatar = 3;
-  string phone = 4;
-  string name = 5;
-  string address = 6;
-  string birthday = 7;
+message RespLogin {
+  string token = 1;
 }
 
-message respComm {
-  bool ok = 1;
-  string error = 2;
+message CommonOK {
+  int64 code = 1;
+  string msg = 2;
 }
-
-message reqFindAll {}
-
-message respFindAll {
-  repeated respUser users = 1;
-}
-
 
 service Users {
-    rpc login (reqLogin) returns (respUser);
-    rpc create(reqCreate) returns(respUser);
-    rpc findOne(reqId) returns(respUser);
-    rpc findAll(reqFindAll) returns(respFindAll);
-    rpc update(reqUpdate) returns(respUser);
-    rpc delete(reqId) returns(respUser);
+  rpc login (reqLogin) returns (BaseUser);
+  rpc create(UserParams) returns(BaseUser);
+  rpc destroy (UserId) returns (CommonOK);
 }

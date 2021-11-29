@@ -21,32 +21,17 @@ func NewUsersServer(svcCtx *svc.ServiceContext) *UsersServer {
 	}
 }
 
-func (s *UsersServer) Login(ctx context.Context, in *user.ReqLogin) (*user.RespUser, error) {
+func (s *UsersServer) Login(ctx context.Context, in *user.ReqLogin) (*user.BaseUser, error) {
 	l := logic.NewLoginLogic(ctx, s.svcCtx)
 	return l.Login(in)
 }
 
-func (s *UsersServer) Create(ctx context.Context, in *user.ReqCreate) (*user.RespUser, error) {
+func (s *UsersServer) Create(ctx context.Context, in *user.UserParams) (*user.BaseUser, error) {
 	l := logic.NewCreateLogic(ctx, s.svcCtx)
 	return l.Create(in)
 }
 
-func (s *UsersServer) FindOne(ctx context.Context, in *user.ReqId) (*user.RespUser, error) {
-	l := logic.NewFindOneLogic(ctx, s.svcCtx)
-	return l.FindOne(in)
-}
-
-func (s *UsersServer) FindAll(ctx context.Context, in *user.ReqFindAll) (*user.RespFindAll, error) {
-	l := logic.NewFindAllLogic(ctx, s.svcCtx)
-	return l.FindAll(in)
-}
-
-func (s *UsersServer) Update(ctx context.Context, in *user.ReqUpdate) (*user.RespUser, error) {
-	l := logic.NewUpdateLogic(ctx, s.svcCtx)
-	return l.Update(in)
-}
-
-func (s *UsersServer) Delete(ctx context.Context, in *user.ReqId) (*user.RespUser, error) {
-	l := logic.NewDeleteLogic(ctx, s.svcCtx)
-	return l.Delete(in)
+func (s *UsersServer) Destroy(ctx context.Context, in *user.UserId) (*user.CommonOK, error) {
+	l := logic.NewDestroyLogic(ctx, s.svcCtx)
+	return l.Destroy(in)
 }
