@@ -4,17 +4,18 @@ import (
 	"errors"
 	"github.com/blog/v1/utils"
 	"gorm.io/gorm"
+	"time"
 )
 
 type Users struct {
 	gorm.Model
-	Username string `gorm:"not null " json:"username"`
-	Password string `gorm:"not null " json:"-"`
-	Avatar   string `gorm:"null " json:"avatar"`
-	Phone    string `gorm:"null " json:"phone"`
-	Name     string `gorm:"null " json:"name"`
-	Address  string `gorm:"null " json:"address"`
-	Birthday string `gorm:"null " json:"birthday"`
+	Username string     `gorm:"not null " json:"username"`
+	Password string     `gorm:"not null " json:"-"`
+	Avatar   string     `gorm:"null " json:"avatar"`
+	Phone    string     `gorm:"null " json:"phone"`
+	Name     string     `gorm:"null " json:"name"`
+	Address  string     `gorm:"null " json:"address"`
+	Birthday *time.Time `gorm:"null " json:"birthday"`
 }
 
 func (u *Users) BeforeCreate(db *gorm.DB) error {

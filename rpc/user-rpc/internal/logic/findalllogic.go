@@ -38,7 +38,7 @@ func (l *FindAllLogic) FindAll(in *user.SelectParameters) (*user.RespFindAll, er
 			Name:      item.Name,
 			Phone:     item.Phone,
 			Address:   item.Address,
-			Birthday:  item.Birthday,
+			Birthday:  item.Birthday.Format("2006-01-02 15:04:05"),
 			CreatedAt: item.CreatedAt.Format("2006-01-02 15:04:05"),
 			UpdatedAt: item.UpdatedAt.Format("2006-01-02 15:04:05"),
 		}
