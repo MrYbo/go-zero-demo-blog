@@ -38,6 +38,7 @@ func (l *FindAllLogic) FindAll(req types.SelectParameters) ([]types.BaseUser, er
 			Address:   item.Address,
 			Birthday:  item.Birthday,
 			CreatedAt: item.CreatedAt,
+			UpdatedAt: item.UpdatedAt,
 		}
 	}
 	return allUser, nil

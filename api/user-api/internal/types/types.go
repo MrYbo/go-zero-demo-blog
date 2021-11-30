@@ -24,6 +24,7 @@ type BaseUser struct {
 	Address   string `json:"address"`
 	Birthday  string `json:"birthday"`
 	CreatedAt string `json:"createdAt"`
+	UpdatedAt string `json:"updatedAt"`
 }
 
 type SelectParameters struct {

@@ -2,6 +2,7 @@ package logic
 
 import (
 	"context"
+	"fmt"
 	"github.com/blog/v1/common/errorx"
 	user "github.com/blog/v1/rpc/user-rpc/user"
 	"net/http"
@@ -36,7 +37,7 @@ func (l *CreateLogic) Create(req types.UserParams) (*types.BaseUser, error) {
 		Address:  req.Address,
 		Birthday: req.Birthday,
 	})
-
+	fmt.Printf("%+v", respUser)
 	if err != nil {
 		return nil, errorx.NewCodeError(http.StatusConflict, "用户名已存在")
 	}
@@ -49,5 +50,6 @@ func (l *CreateLogic) Create(req types.UserParams) (*types.BaseUser, error) {
 		Address:   respUser.Address,
 		Birthday:  respUser.Birthday,
 		CreatedAt: respUser.CreatedAt,
+		UpdatedAt: respUser.UpdatedAt,
 	}, nil
 }
