@@ -31,6 +31,21 @@ func (s *UsersServer) Create(ctx context.Context, in *user.UserParams) (*user.Ba
 	return l.Create(in)
 }
 
+func (s *UsersServer) FindOne(ctx context.Context, in *user.UserId) (*user.BaseUser, error) {
+	l := logic.NewFindOneLogic(ctx, s.svcCtx)
+	return l.FindOne(in)
+}
+
+func (s *UsersServer) FindAll(ctx context.Context, in *user.SelectParameters) (*user.RespFindAll, error) {
+	l := logic.NewFindAllLogic(ctx, s.svcCtx)
+	return l.FindAll(in)
+}
+
+func (s *UsersServer) Update(ctx context.Context, in *user.BaseUser) (*user.BaseUser, error) {
+	l := logic.NewUpdateLogic(ctx, s.svcCtx)
+	return l.Update(in)
+}
+
 func (s *UsersServer) Destroy(ctx context.Context, in *user.UserId) (*user.CommonOK, error) {
 	l := logic.NewDestroyLogic(ctx, s.svcCtx)
 	return l.Destroy(in)

@@ -22,7 +22,7 @@ type UserParams {
 }
 
 type BaseUser {
-	UserId
+	Id        int    `path:"id" json:"id"`
 	Username  string `json:"username"`
 	Avatar    string `json:"avatar"`
 	Phone     string `json:"phone"`
@@ -30,6 +30,11 @@ type BaseUser {
 	Address   string `json:"address"`
 	Birthday  string `json:"birthday"`
 	CreatedAt string `json:"createdAt"`
+}
+
+type SelectParameters {
+	Page     int `form:"page, defalut=1, optional"`
+	PageSize int `form:"pageSize, defalut=10, optional"`
 }
 
 type ReqLogin {
@@ -58,6 +63,15 @@ service users-api {
 service users-api {
 	@handler create
 	post /user (UserParams) returns (BaseUser)
+	
+	@handler findOne
+	get /user/:id (UserId) returns (BaseUser)
+	
+	@handler findAll
+	get /users (SelectParameters) returns ([]BaseUser)
+	
+	@handler update
+	patch /user/:id (BaseUser) returns (BaseUser)
 	
 	@handler destroy
 	delete /user/:id (UserId) returns (CommonOK)

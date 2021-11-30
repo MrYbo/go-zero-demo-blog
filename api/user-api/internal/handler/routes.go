@@ -28,6 +28,21 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				Handler: createHandler(serverCtx),
 			},
 			{
+				Method:  http.MethodGet,
+				Path:    "/user/:id",
+				Handler: findOneHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodGet,
+				Path:    "/users",
+				Handler: findAllHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPatch,
+				Path:    "/user/:id",
+				Handler: updateHandler(serverCtx),
+			},
+			{
 				Method:  http.MethodDelete,
 				Path:    "/user/:id",
 				Handler: destroyHandler(serverCtx),

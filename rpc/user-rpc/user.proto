@@ -42,8 +42,20 @@ message CommonOK {
   string msg = 2;
 }
 
+message SelectParameters{
+  int64 page = 1;
+  int64 pageSize = 2;
+}
+
+message respFindAll {
+  repeated BaseUser users = 1;
+}
+
 service Users {
   rpc login (reqLogin) returns (BaseUser);
   rpc create(UserParams) returns(BaseUser);
+  rpc findOne(UserId) returns (BaseUser);
+  rpc findAll(SelectParameters) returns (respFindAll);
+  rpc update(BaseUser) returns (BaseUser);
   rpc destroy (UserId) returns (CommonOK);
 }

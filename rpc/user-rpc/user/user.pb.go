@@ -434,6 +434,108 @@ func (x *CommonOK) GetMsg() string {
 	return ""
 }
 
+type SelectParameters struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Page     int64 `protobuf:"varint,1,opt,name=page,proto3" json:"page,omitempty"`
+	PageSize int64 `protobuf:"varint,2,opt,name=pageSize,proto3" json:"pageSize,omitempty"`
+}
+
+func (x *SelectParameters) Reset() {
+	*x = SelectParameters{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_user_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SelectParameters) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SelectParameters) ProtoMessage() {}
+
+func (x *SelectParameters) ProtoReflect() protoreflect.Message {
+	mi := &file_user_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SelectParameters.ProtoReflect.Descriptor instead.
+func (*SelectParameters) Descriptor() ([]byte, []int) {
+	return file_user_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *SelectParameters) GetPage() int64 {
+	if x != nil {
+		return x.Page
+	}
+	return 0
+}
+
+func (x *SelectParameters) GetPageSize() int64 {
+	if x != nil {
+		return x.PageSize
+	}
+	return 0
+}
+
+type RespFindAll struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Users []*BaseUser `protobuf:"bytes,1,rep,name=users,proto3" json:"users,omitempty"`
+}
+
+func (x *RespFindAll) Reset() {
+	*x = RespFindAll{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_user_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RespFindAll) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RespFindAll) ProtoMessage() {}
+
+func (x *RespFindAll) ProtoReflect() protoreflect.Message {
+	mi := &file_user_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RespFindAll.ProtoReflect.Descriptor instead.
+func (*RespFindAll) Descriptor() ([]byte, []int) {
+	return file_user_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *RespFindAll) GetUsers() []*BaseUser {
+	if x != nil {
+		return x.Users
+	}
+	return nil
+}
+
 var File_user_proto protoreflect.FileDescriptor
 
 var file_user_proto_rawDesc = []byte{
@@ -476,16 +578,32 @@ var file_user_proto_rawDesc = []byte{
 	0x30, 0x0a, 0x08, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x4f, 0x4b, 0x12, 0x12, 0x0a, 0x04, 0x63,
 	0x6f, 0x64, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x12,
 	0x10, 0x0a, 0x03, 0x6d, 0x73, 0x67, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6d, 0x73,
-	0x67, 0x32, 0x85, 0x01, 0x0a, 0x05, 0x55, 0x73, 0x65, 0x72, 0x73, 0x12, 0x27, 0x0a, 0x05, 0x6c,
-	0x6f, 0x67, 0x69, 0x6e, 0x12, 0x0e, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x72, 0x65, 0x71, 0x4c,
-	0x6f, 0x67, 0x69, 0x6e, 0x1a, 0x0e, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x42, 0x61, 0x73, 0x65,
-	0x55, 0x73, 0x65, 0x72, 0x12, 0x2a, 0x0a, 0x06, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12, 0x10,
-	0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73,
-	0x1a, 0x0e, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x55, 0x73, 0x65, 0x72,
-	0x12, 0x27, 0x0a, 0x07, 0x64, 0x65, 0x73, 0x74, 0x72, 0x6f, 0x79, 0x12, 0x0c, 0x2e, 0x75, 0x73,
-	0x65, 0x72, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x49, 0x64, 0x1a, 0x0e, 0x2e, 0x75, 0x73, 0x65, 0x72,
-	0x2e, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x4f, 0x4b, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x33,
+	0x67, 0x22, 0x42, 0x0a, 0x10, 0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x50, 0x61, 0x72, 0x61, 0x6d,
+	0x65, 0x74, 0x65, 0x72, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x70, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x03, 0x52, 0x04, 0x70, 0x61, 0x67, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x70, 0x61, 0x67,
+	0x65, 0x53, 0x69, 0x7a, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x08, 0x70, 0x61, 0x67,
+	0x65, 0x53, 0x69, 0x7a, 0x65, 0x22, 0x33, 0x0a, 0x0b, 0x72, 0x65, 0x73, 0x70, 0x46, 0x69, 0x6e,
+	0x64, 0x41, 0x6c, 0x6c, 0x12, 0x24, 0x0a, 0x05, 0x75, 0x73, 0x65, 0x72, 0x73, 0x18, 0x01, 0x20,
+	0x03, 0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x55,
+	0x73, 0x65, 0x72, 0x52, 0x05, 0x75, 0x73, 0x65, 0x72, 0x73, 0x32, 0x8e, 0x02, 0x0a, 0x05, 0x55,
+	0x73, 0x65, 0x72, 0x73, 0x12, 0x27, 0x0a, 0x05, 0x6c, 0x6f, 0x67, 0x69, 0x6e, 0x12, 0x0e, 0x2e,
+	0x75, 0x73, 0x65, 0x72, 0x2e, 0x72, 0x65, 0x71, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x1a, 0x0e, 0x2e,
+	0x75, 0x73, 0x65, 0x72, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x55, 0x73, 0x65, 0x72, 0x12, 0x2a, 0x0a,
+	0x06, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12, 0x10, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x55,
+	0x73, 0x65, 0x72, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x1a, 0x0e, 0x2e, 0x75, 0x73, 0x65, 0x72,
+	0x2e, 0x42, 0x61, 0x73, 0x65, 0x55, 0x73, 0x65, 0x72, 0x12, 0x27, 0x0a, 0x07, 0x66, 0x69, 0x6e,
+	0x64, 0x4f, 0x6e, 0x65, 0x12, 0x0c, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x55, 0x73, 0x65, 0x72,
+	0x49, 0x64, 0x1a, 0x0e, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x55, 0x73,
+	0x65, 0x72, 0x12, 0x34, 0x0a, 0x07, 0x66, 0x69, 0x6e, 0x64, 0x41, 0x6c, 0x6c, 0x12, 0x16, 0x2e,
+	0x75, 0x73, 0x65, 0x72, 0x2e, 0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x50, 0x61, 0x72, 0x61, 0x6d,
+	0x65, 0x74, 0x65, 0x72, 0x73, 0x1a, 0x11, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x72, 0x65, 0x73,
+	0x70, 0x46, 0x69, 0x6e, 0x64, 0x41, 0x6c, 0x6c, 0x12, 0x28, 0x0a, 0x06, 0x75, 0x70, 0x64, 0x61,
+	0x74, 0x65, 0x12, 0x0e, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x55, 0x73,
+	0x65, 0x72, 0x1a, 0x0e, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x55, 0x73,
+	0x65, 0x72, 0x12, 0x27, 0x0a, 0x07, 0x64, 0x65, 0x73, 0x74, 0x72, 0x6f, 0x79, 0x12, 0x0c, 0x2e,
+	0x75, 0x73, 0x65, 0x72, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x49, 0x64, 0x1a, 0x0e, 0x2e, 0x75, 0x73,
+	0x65, 0x72, 0x2e, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x4f, 0x4b, 0x62, 0x06, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x33,
 }
 
 var (
@@ -500,27 +618,36 @@ func file_user_proto_rawDescGZIP() []byte {
 	return file_user_proto_rawDescData
 }
 
-var file_user_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_user_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_user_proto_goTypes = []interface{}{
-	(*UserId)(nil),     // 0: user.UserId
-	(*UserParams)(nil), // 1: user.UserParams
-	(*BaseUser)(nil),   // 2: user.BaseUser
-	(*ReqLogin)(nil),   // 3: user.reqLogin
-	(*RespLogin)(nil),  // 4: user.RespLogin
-	(*CommonOK)(nil),   // 5: user.CommonOK
+	(*UserId)(nil),           // 0: user.UserId
+	(*UserParams)(nil),       // 1: user.UserParams
+	(*BaseUser)(nil),         // 2: user.BaseUser
+	(*ReqLogin)(nil),         // 3: user.reqLogin
+	(*RespLogin)(nil),        // 4: user.RespLogin
+	(*CommonOK)(nil),         // 5: user.CommonOK
+	(*SelectParameters)(nil), // 6: user.SelectParameters
+	(*RespFindAll)(nil),      // 7: user.respFindAll
 }
 var file_user_proto_depIdxs = []int32{
-	3, // 0: user.Users.login:input_type -> user.reqLogin
-	1, // 1: user.Users.create:input_type -> user.UserParams
-	0, // 2: user.Users.destroy:input_type -> user.UserId
-	2, // 3: user.Users.login:output_type -> user.BaseUser
-	2, // 4: user.Users.create:output_type -> user.BaseUser
-	5, // 5: user.Users.destroy:output_type -> user.CommonOK
-	3, // [3:6] is the sub-list for method output_type
-	0, // [0:3] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	2, // 0: user.respFindAll.users:type_name -> user.BaseUser
+	3, // 1: user.Users.login:input_type -> user.reqLogin
+	1, // 2: user.Users.create:input_type -> user.UserParams
+	0, // 3: user.Users.findOne:input_type -> user.UserId
+	6, // 4: user.Users.findAll:input_type -> user.SelectParameters
+	2, // 5: user.Users.update:input_type -> user.BaseUser
+	0, // 6: user.Users.destroy:input_type -> user.UserId
+	2, // 7: user.Users.login:output_type -> user.BaseUser
+	2, // 8: user.Users.create:output_type -> user.BaseUser
+	2, // 9: user.Users.findOne:output_type -> user.BaseUser
+	7, // 10: user.Users.findAll:output_type -> user.respFindAll
+	2, // 11: user.Users.update:output_type -> user.BaseUser
+	5, // 12: user.Users.destroy:output_type -> user.CommonOK
+	7, // [7:13] is the sub-list for method output_type
+	1, // [1:7] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_user_proto_init() }
@@ -601,6 +728,30 @@ func file_user_proto_init() {
 				return nil
 			}
 		}
+		file_user_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SelectParameters); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_user_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RespFindAll); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -608,7 +759,7 @@ func file_user_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_user_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -636,6 +787,9 @@ const _ = grpc.SupportPackageIsVersion6
 type UsersClient interface {
 	Login(ctx context.Context, in *ReqLogin, opts ...grpc.CallOption) (*BaseUser, error)
 	Create(ctx context.Context, in *UserParams, opts ...grpc.CallOption) (*BaseUser, error)
+	FindOne(ctx context.Context, in *UserId, opts ...grpc.CallOption) (*BaseUser, error)
+	FindAll(ctx context.Context, in *SelectParameters, opts ...grpc.CallOption) (*RespFindAll, error)
+	Update(ctx context.Context, in *BaseUser, opts ...grpc.CallOption) (*BaseUser, error)
 	Destroy(ctx context.Context, in *UserId, opts ...grpc.CallOption) (*CommonOK, error)
 }
 
@@ -665,6 +819,33 @@ func (c *usersClient) Create(ctx context.Context, in *UserParams, opts ...grpc.C
 	return out, nil
 }
 
+func (c *usersClient) FindOne(ctx context.Context, in *UserId, opts ...grpc.CallOption) (*BaseUser, error) {
+	out := new(BaseUser)
+	err := c.cc.Invoke(ctx, "/user.Users/findOne", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *usersClient) FindAll(ctx context.Context, in *SelectParameters, opts ...grpc.CallOption) (*RespFindAll, error) {
+	out := new(RespFindAll)
+	err := c.cc.Invoke(ctx, "/user.Users/findAll", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *usersClient) Update(ctx context.Context, in *BaseUser, opts ...grpc.CallOption) (*BaseUser, error) {
+	out := new(BaseUser)
+	err := c.cc.Invoke(ctx, "/user.Users/update", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *usersClient) Destroy(ctx context.Context, in *UserId, opts ...grpc.CallOption) (*CommonOK, error) {
 	out := new(CommonOK)
 	err := c.cc.Invoke(ctx, "/user.Users/destroy", in, out, opts...)
@@ -678,6 +859,9 @@ func (c *usersClient) Destroy(ctx context.Context, in *UserId, opts ...grpc.Call
 type UsersServer interface {
 	Login(context.Context, *ReqLogin) (*BaseUser, error)
 	Create(context.Context, *UserParams) (*BaseUser, error)
+	FindOne(context.Context, *UserId) (*BaseUser, error)
+	FindAll(context.Context, *SelectParameters) (*RespFindAll, error)
+	Update(context.Context, *BaseUser) (*BaseUser, error)
 	Destroy(context.Context, *UserId) (*CommonOK, error)
 }
 
@@ -690,6 +874,15 @@ func (*UnimplementedUsersServer) Login(context.Context, *ReqLogin) (*BaseUser, e
 }
 func (*UnimplementedUsersServer) Create(context.Context, *UserParams) (*BaseUser, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
+}
+func (*UnimplementedUsersServer) FindOne(context.Context, *UserId) (*BaseUser, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FindOne not implemented")
+}
+func (*UnimplementedUsersServer) FindAll(context.Context, *SelectParameters) (*RespFindAll, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FindAll not implemented")
+}
+func (*UnimplementedUsersServer) Update(context.Context, *BaseUser) (*BaseUser, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
 func (*UnimplementedUsersServer) Destroy(context.Context, *UserId) (*CommonOK, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Destroy not implemented")
@@ -735,6 +928,60 @@ func _Users_Create_Handler(srv interface{}, ctx context.Context, dec func(interf
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Users_FindOne_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UserId)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UsersServer).FindOne(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/user.Users/FindOne",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UsersServer).FindOne(ctx, req.(*UserId))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Users_FindAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SelectParameters)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UsersServer).FindAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/user.Users/FindAll",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UsersServer).FindAll(ctx, req.(*SelectParameters))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Users_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BaseUser)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UsersServer).Update(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/user.Users/Update",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UsersServer).Update(ctx, req.(*BaseUser))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Users_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UserId)
 	if err := dec(in); err != nil {
@@ -764,6 +1011,18 @@ var _Users_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "create",
 			Handler:    _Users_Create_Handler,
+		},
+		{
+			MethodName: "findOne",
+			Handler:    _Users_FindOne_Handler,
+		},
+		{
+			MethodName: "findAll",
+			Handler:    _Users_FindAll_Handler,
+		},
+		{
+			MethodName: "update",
+			Handler:    _Users_Update_Handler,
 		},
 		{
 			MethodName: "destroy",

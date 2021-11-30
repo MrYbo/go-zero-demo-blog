@@ -16,7 +16,7 @@ type UserParams struct {
 }
 
 type BaseUser struct {
-	UserId
+	Id        int    `path:"id" json:"id"`
 	Username  string `json:"username"`
 	Avatar    string `json:"avatar"`
 	Phone     string `json:"phone"`
@@ -24,6 +24,11 @@ type BaseUser struct {
 	Address   string `json:"address"`
 	Birthday  string `json:"birthday"`
 	CreatedAt string `json:"createdAt"`
+}
+
+type SelectParameters struct {
+	Page     int `form:"page, defalut=1, optional"`
+	PageSize int `form:"pageSize, defalut=10, optional"`
 }
 
 type ReqLogin struct {

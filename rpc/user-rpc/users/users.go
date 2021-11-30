@@ -13,16 +13,21 @@ import (
 )
 
 type (
-	BaseUser   = user.BaseUser
-	CommonOK   = user.CommonOK
-	ReqLogin   = user.ReqLogin
-	RespLogin  = user.RespLogin
-	UserId     = user.UserId
-	UserParams = user.UserParams
+	BaseUser         = user.BaseUser
+	CommonOK         = user.CommonOK
+	ReqLogin         = user.ReqLogin
+	RespFindAll      = user.RespFindAll
+	RespLogin        = user.RespLogin
+	SelectParameters = user.SelectParameters
+	UserId           = user.UserId
+	UserParams       = user.UserParams
 
 	Users interface {
 		Login(ctx context.Context, in *ReqLogin, opts ...grpc.CallOption) (*BaseUser, error)
 		Create(ctx context.Context, in *UserParams, opts ...grpc.CallOption) (*BaseUser, error)
+		FindOne(ctx context.Context, in *UserId, opts ...grpc.CallOption) (*BaseUser, error)
+		FindAll(ctx context.Context, in *SelectParameters, opts ...grpc.CallOption) (*RespFindAll, error)
+		Update(ctx context.Context, in *BaseUser, opts ...grpc.CallOption) (*BaseUser, error)
 		Destroy(ctx context.Context, in *UserId, opts ...grpc.CallOption) (*CommonOK, error)
 	}
 
@@ -45,6 +50,21 @@ func (m *defaultUsers) Login(ctx context.Context, in *ReqLogin, opts ...grpc.Cal
 func (m *defaultUsers) Create(ctx context.Context, in *UserParams, opts ...grpc.CallOption) (*BaseUser, error) {
 	client := user.NewUsersClient(m.cli.Conn())
 	return client.Create(ctx, in, opts...)
+}
+
+func (m *defaultUsers) FindOne(ctx context.Context, in *UserId, opts ...grpc.CallOption) (*BaseUser, error) {
+	client := user.NewUsersClient(m.cli.Conn())
+	return client.FindOne(ctx, in, opts...)
+}
+
+func (m *defaultUsers) FindAll(ctx context.Context, in *SelectParameters, opts ...grpc.CallOption) (*RespFindAll, error) {
+	client := user.NewUsersClient(m.cli.Conn())
+	return client.FindAll(ctx, in, opts...)
+}
+
+func (m *defaultUsers) Update(ctx context.Context, in *BaseUser, opts ...grpc.CallOption) (*BaseUser, error) {
+	client := user.NewUsersClient(m.cli.Conn())
+	return client.Update(ctx, in, opts...)
 }
 
 func (m *defaultUsers) Destroy(ctx context.Context, in *UserId, opts ...grpc.CallOption) (*CommonOK, error) {

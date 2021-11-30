@@ -41,7 +41,7 @@ func (l *CreateLogic) Create(req types.UserParams) (*types.BaseUser, error) {
 		return nil, errorx.NewCodeError(http.StatusConflict, "用户名已存在")
 	}
 	return &types.BaseUser{
-		UserId:    types.UserId{Id: respUser.Id},
+		Id:        int(respUser.Id),
 		Username:  respUser.Username,
 		Avatar:    respUser.Avatar,
 		Phone:     respUser.Phone,
