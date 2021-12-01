@@ -2,9 +2,12 @@ package logic
 
 import (
 	"context"
-
+	"fmt"
 	"github.com/blog/v1/api/user-api/internal/svc"
 	"github.com/blog/v1/api/user-api/internal/types"
+	"github.com/blog/v1/common/errorx"
+	user "github.com/blog/v1/rpc/user-rpc/user"
+	"net/http"
 
 	"github.com/tal-tech/go-zero/core/logx"
 )
@@ -23,8 +26,30 @@ func NewUpdateLogic(ctx context.Context, svcCtx *svc.ServiceContext) UpdateLogic
 	}
 }
 
-func (l *UpdateLogic) Update(req types.BaseUser) (*types.BaseUser, error) {
-	// todo: add your logic here and delete this line
+func (l *UpdateLogic) Update(req types.UpdateUser) (*types.BaseUser, error) {
+	respUser, err := l.svcCtx.Users.Update(l.ctx, &user.UpdateUser{
+		Id: int64(req.Id),
+		Avatar: req.Avatar,
+		Name: req.Name,
+		Phone: req.Phone,
+		Address: req.Address,
+	})
 
-	return &types.BaseUser{}, nil
+	if err != nil {
+		return nil, errorx.NewCodeError(http.StatusNotFound, "not found")
+	}
+
+	fmt.Printf("=====++++%+v", respUser)
+
+	return &types.BaseUser{
+		Id:        int(respUser.Id),
+		Username:  respUser.Username,
+		Avatar:    respUser.Avatar,
+		Phone:     respUser.Phone,
+		Name:      respUser.Name,
+		Address:   respUser.Address,
+		Birthday:  respUser.Birthday,
+		CreatedAt: respUser.CreatedAt,
+		UpdatedAt: respUser.UpdatedAt,
+	}, nil
 }

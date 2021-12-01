@@ -22,7 +22,7 @@ type UserParams {
 }
 
 type BaseUser {
-	Id        int    `path:"id" json:"id"`
+	Id        int    `json:"id"`
 	Username  string `json:"username"`
 	Avatar    string `json:"avatar"`
 	Phone     string `json:"phone"`
@@ -31,6 +31,15 @@ type BaseUser {
 	Birthday  string `json:"birthday"`
 	CreatedAt string `json:"createdAt"`
 	UpdatedAt string `json:"updatedAt"`
+}
+
+type UpdateUser {
+	Id       int    `path:"id"`
+	Avatar   string `json:"avatar, optional"`
+	Phone    string `json:"phone, optional"`
+	Name     string `json:"name, optional"`
+	Address  string `json:"address, optional"`
+	Birthday string `json:"birthday, optional"`
 }
 
 type SelectParameters {
@@ -72,7 +81,7 @@ service users-api {
 	get /users (SelectParameters) returns ([]BaseUser)
 	
 	@handler update
-	patch /user/:id (BaseUser) returns (BaseUser)
+	patch /user/:id (UpdateUser) returns (BaseUser)
 	
 	@handler destroy
 	delete /user/:id (UserId) returns (CommonOK)

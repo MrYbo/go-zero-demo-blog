@@ -16,7 +16,7 @@ type UserParams struct {
 }
 
 type BaseUser struct {
-	Id        int    `path:"id" json:"id"`
+	Id        int    `json:"id"`
 	Username  string `json:"username"`
 	Avatar    string `json:"avatar"`
 	Phone     string `json:"phone"`
@@ -25,6 +25,15 @@ type BaseUser struct {
 	Birthday  string `json:"birthday"`
 	CreatedAt string `json:"createdAt"`
 	UpdatedAt string `json:"updatedAt"`
+}
+
+type UpdateUser struct {
+	Id       int    `path:"id"`
+	Avatar   string `json:"avatar, optional"`
+	Phone    string `json:"phone, optional"`
+	Name     string `json:"name, optional"`
+	Address  string `json:"address, optional"`
+	Birthday string `json:"birthday, optional"`
 }
 
 type SelectParameters struct {
