@@ -2,7 +2,6 @@ package logic
 
 import (
 	"context"
-	"fmt"
 	"github.com/blog/v1/api/user-api/internal/svc"
 	"github.com/blog/v1/api/user-api/internal/types"
 	"github.com/blog/v1/common/errorx"
@@ -38,8 +37,6 @@ func (l *UpdateLogic) Update(req types.UpdateUser) (*types.BaseUser, error) {
 	if err != nil {
 		return nil, errorx.NewCodeError(http.StatusNotFound, "not found")
 	}
-
-	fmt.Printf("=====++++%+v", respUser)
 
 	return &types.BaseUser{
 		Id:        int(respUser.Id),
